@@ -115,3 +115,23 @@ No output means that all referenced image paths exist. If filenames appear, add 
 ## Author
 
 Muhammad Amir — [GitHub](https://github.com/amirownsthis-code)
+
+## Screenshots
+
+### Homepage
+![Homepage](docs/screenshots/homepage.png)
+
+### Coin Packages
+![Coin packages](docs/screenshots/coin-packages.png)
+
+### Profile Lookup
+![Profile lookup demo](docs/screenshots/id-searching-feature.png)
+
+### Payment Methods
+![Demo payment methods](docs/screenshots/payment-methods.png)
+
+### Simulated Checkout
+![Simulated checkout](docs/screenshots/checkout.png)
+
+### Demo Receipt
+![Demo receipt](docs/screenshots/demo-receipt.png)
