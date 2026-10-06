@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Official Top Up Mart | Recharge Coins & Packages</title>
+    <!-- TikTok Theme Coin Favicon (Address bar tab icon like YouTube) -->
+    <link rel="icon" type="image/webp" href="images/tiktok-theme-coin.webp">
+    <link rel="shortcut icon" type="image/webp" href="images/tiktok-theme-coin.webp">
+    <link rel="apple-touch-icon" href="images/tiktok-theme-coin.webp">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20260929_v2">
+</head>
+<body>
+
+    <!-- ==========================================
+         FIXED WHITE NAVBAR / HEADER
+         ========================================== -->
+    <header class="main-navbar">
+        <div class="nav-container">
+            <!-- Left Brand Section -->
+            <div class="nav-left">
+                <a href="#hero" class="brand-link">
+                    <img src="images/tiktok-name-and-logo.png" alt="TikTok" class="tiktok-brand-logo">
+                </a>
+                <span class="nav-separator">|</span>
+                <div class="mart-badge">
+                    <img src="images/mart.png" alt="Official Mart" class="mart-logo">
+                    <span class="mart-text">Official Top Up Center</span>
+                </div>
+            </div>
+
+            <!-- Middle Navigation Links (Ref Image 1) -->
+            <nav class="nav-middle">
+                <ul class="nav-menu">
+                    <li><a href="javascript:void(0)" class="nav-item active" onclick="openInfoModal('coin-price')">Tiktok Coin Price</a></li>
+                    <li><a href="javascript:void(0)" class="nav-item" onclick="openInfoModal('how-to-buy')">How To Buy</a></li>
+                    <li><a href="javascript:void(0)" class="nav-item" onclick="openInfoModal('worldwide')">World Wide</a></li>
+                    <li><a href="javascript:void(0)" class="nav-item" onclick="openInfoModal('blog')">Blog</a></li>
+                    <li><a href="javascript:void(0)" class="nav-item" onclick="openInfoModal('contact')">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Controls -->
+            <div class="nav-right">
+                <!-- Notification Icon with Badge -->
+                <div class="nav-icon-wrapper notification-btn" id="notificationBtn" title="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-badge">2</span>
+                </div>
+
+                <!-- Three Horizontal Lines Menu (Navbar matching seamlessly) -->
+                <div class="nav-menu-container">
+                    <button class="nav-menu-btn" id="menuToggleBtn" aria-label="Toggle menu" title="Open Menu">
+                        <span class="bar bar-cyan"></span>
+                        <span class="bar bar-white"></span>
+                        <span class="bar bar-pink"></span>
+                    </button>
+
+                    <!-- Dropdown List from Three Lines -->
+                    <div class="nav-dropdown-menu glass-panel" id="navDropdownMenu">
+                        <div class="dropdown-header" id="dropdownUserHeader" style="display: none;">
+                            <img src="images/tiktok-logo-only.png" alt="User DP" class="dropdown-user-dp" id="dropdownUserDp">
+                            <div class="dropdown-user-info">
+                                <span class="dropdown-user-name" id="dropdownUserName">User Name</span>
+                                <span class="dropdown-user-email" id="dropdownUserEmail">user@email.com</span>
+                            </div>
+                        </div>
+
+                        <ul class="dropdown-links">
+                            <!-- Logged Out Links -->
+                            <li class="logged-out-only">
+                                <a href="javascript:void(0)" onclick="openAuthModal('login')">
+                                    <i class="fa-solid fa-right-to-bracket text-tiktok-pink"></i> Log In / Register
+                                </a>
+                            </li>
+
+                            <!-- Logged In Links -->
+                            <li class="logged-in-only" style="display: none;">
+                                <a href="javascript:void(0)" onclick="openProfileModal()">
+                                    <i class="fa-solid fa-user-pen text-tiktok-cyan"></i> My Profile
+                                </a>
+                            </li>
+                            <li class="logged-in-only" style="display: none;">
+                                <a href="javascript:void(0)" onclick="openTransactionsModal()">
+                                    <i class="fa-solid fa-receipt text-tiktok-pink"></i> Transaction History
+                                </a>
+                            </li>
+                            <li class="logged-in-only" style="display: none;">
+                                <a href="javascript:void(0)" onclick="openAuthModal('login')">
+                                    <i class="fa-solid fa-arrows-rotate text-tiktok-cyan"></i> Switch Account
+                                </a>
+                            </li>
+
+                            <li class="dropdown-divider"></li>
+
+                            <!-- General Links -->
+                            <li>
+                                <a href="javascript:void(0)" onclick="openInfoModal('how-to-buy')">
+                                    <i class="fa-solid fa-circle-question"></i> How To Buy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="openInfoModal('faq')">
+                                    <i class="fa-solid fa-headset"></i> Help & FAQ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="openInfoModal('terms')">
+                                    <i class="fa-solid fa-shield-halved"></i> Terms & Policies
+                                </a>
+                            </li>
+
+                            <!-- Log Out Button -->
+                            <li class="logged-in-only" style="display: none;">
+                                <a href="javascript:void(0)" onclick="handleLogout()" class="text-danger">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         TIKTOK BLURRED IMAGE BACKGROUND & LIGHT OVERLAY
+         ========================================== -->
+    <div class="tiktok-blurred-bg"></div>
+    <div class="tiktok-bg-overlay"></div>
+
+    <!-- ==========================================
+         MAIN WRAPPER (BLACK BACKGROUND CONTENT)
+         ========================================== -->
+    <main class="main-content">
+
+        <!-- ==========================================
+             HERO SECTION: 3 ROTATING GLASS CARDS (SNUG SIZING)
+             ========================================== -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container">
+                <!-- Hero Header Box -->
+                <div class="hero-header-box glass-panel">
+                    <div class="hero-badge">
+                        <span class="live-pulse"></span>
+                        <span>OFFICIAL TIKTOK TOP-UP & RECHARGE CENTER</span>
+                    </div>
+                    <h1 class="hero-main-heading">
+                        Save Up To <span class="highlight-cyan">32%</span> When You Recharge
+                        <span class="highlight-pink">TikTok Coins</span>
+                    </h1>
+                    <p class="hero-description">
+                        Instant delivery directly to your account. Multiple regional and global payment methods with zero extra platform commission fees.
+                    </p>
+                </div>
+
+                <!-- Full Width Card Showcase Area (Like Image 2) -->
+                <div class="card-showcase-wrapper">
+                    <!-- Glowing Background Accent Blobs for Glassmorphism -->
+                    <div class="glow-blob blob-red-top"></div>
+                    <div class="glow-blob blob-cyan-bottom"></div>
+
+                    <!-- 3 Cards Dynamic Position Rotator Container -->
+                    <div class="rotating-cards-container" id="rotatingCardsContainer">
+                        
+                        <!-- Card 1: (card-a.png) -->
+                        <div class="feature-card pos-left glass-card" id="cardA" data-index="0" onclick="selectQuickPlan(70)">
+                            <img src="images/card-a.png" alt="Demo Card" class="motion-card-graphic">
+                        </div>
+
+                        <!-- Card 2: (card-b.png) -->
+                        <div class="feature-card pos-middle glass-card" id="cardB" data-index="1" onclick="selectQuickPlan(1400)">
+                            <img src="images/card-b.png" alt="Standard Card" class="motion-card-graphic">
+                        </div>
+
+                        <!-- Card 3: (card-c.png) -->
+                        <div class="feature-card pos-right glass-card" id="cardC" data-index="2" onclick="selectQuickPlan(7000)">
+                            <img src="images/card-c.png" alt="Pro Card" class="motion-card-graphic">
+                        </div>
+
+                    </div>
+
+                    <!-- Carousel Arrow Controls -->
+                    <div class="carousel-indicators">
+                        <button class="carousel-arrow prev-btn" id="prevCardBtn" aria-label="Previous card" title="Previous">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow next-btn" id="nextCardBtn" aria-label="Next card" title="Next">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     HORIZONTAL GLASSMORPHISM CARD WITH LOGIN / CHANGE ACCOUNT (IMAGE 5 STYLE)
+                     ========================================== -->
+                <div class="horizontal-login-banner glass-panel">
+                    <div class="banner-inner">
+                        <!-- Left: TikTok Logo Image -->
+                        <div class="banner-side left-side">
+                            <img src="images/tiktok-logo-only.png" alt="TikTok Logo" class="banner-tiktok-logo">
+                            <span class="banner-side-text">Fast & Safe Top Up</span>
+                        </div>
+
+                        <!-- Middle: Dynamic Login / Change Account Button -->
+                        <div class="banner-center">
+                            
+                            <!-- Logged Out State: Pink Plus Login Button -->
+                            <div id="bannerLoggedOutBtn">
+                                <button class="tiktok-plus-login-btn" onclick="openAuthModal('login')" title="Click to Log In / Register">
+                                    <div class="plus-box-frame">
+                                        <span class="plus-icon"><i class="fa-solid fa-plus"></i></span>
+                                        <span class="plus-text">LOG IN</span>
+                                    </div>
+                                </button>
+                                <span class="login-prompt-subtext">Click to log in or register</span>
+                            </div>
+
+                            <!-- Logged In State: White Card with Two Equilibrium Pink Arrows & Tooltip -->
+                            <div id="bannerLoggedInCard" style="display: none;">
+                                <div class="logged-user-white-card" onclick="openAuthModal('login')" title="Change Account">
+                                    <img src="images/tiktok-logo-only.png" alt="Avatar" class="banner-user-avatar" id="bannerUserAvatar">
+                                    <div class="banner-user-meta">
+                                        <span class="banner-user-name" id="bannerUserName">User Name</span>
+                                        <span class="banner-user-handle" id="bannerUserHandle">@username</span>
+                                    </div>
+                                    <div class="change-account-icon-wrap" title="Change Account">
+                                        <i class="fa-solid fa-right-left change-arrows-icon"></i>
+                                        <span class="change-account-tooltip">Change Account</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right: TikTok Name Image -->
+                        <div class="banner-side right-side">
+                            <img src="images/tiktok-name-only.png" alt="TikTok Name" class="banner-tiktok-name">
+                            <span class="banner-side-text">Official Global Service</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PACKAGES SECTION (3D COIN CARDS - 4 PER ROW)
+             ========================================== -->
+        <section class="packages-section" id="packages">
+            <div class="section-container">
+                
+                <!-- Section Header -->
+                <div class="section-header text-center">
+                    <div class="section-pill">
+                        <i class="fa-solid fa-coins"></i> TIKTOK COIN PACKAGES
+                    </div>
+                    <h2 class="section-title">
+                        Choose Your <span class="text-tiktok-gradient">Coin Package</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Select a package below. Only one package can be chosen at a time. All packages include direct in-app recharge.
+                    </p>
+                </div>
+
+                <!-- ==========================================
+                     USER ACCOUNT INPUT BAR (SEPARATE OUTSIDE CHECK BUTTON - REF IMAGE 3)
+                     ========================================== -->
+                <div class="user-target-bar glass-panel">
+                    <div class="user-input-group">
+                        <label for="rechargeUsername" class="user-input-label">
+                            <i class="fa-solid fa-at text-tiktok-cyan"></i> Recharge To TikTok Account:
+                        </label>
+                        
+                        <!-- Distinct Dark Input Box -->
+                        <div class="input-standalone-wrap">
+                            <input type="text" id="rechargeUsername" placeholder="@username or link" value="" autocomplete="off">
+                        </div>
+
+                        <!-- Check Button Placed OUTSIDE the Input Box -->
+                        <button type="button" class="verify-btn-outside" id="verifyUserBtn">
+                            <i class="fa-solid fa-magnifying-glass"></i> <span id="verifyBtnText">Check</span>
+                        </button>
+                    </div>
+
+                    <div class="user-verified-status" id="userStatusBox">
+                        <span class="status-dot"></span>
+                        <span id="userStatusText">Ready for instant recharge</span>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     TIKTOK USER PROFILE CARD (REFERENCE IMAGE 2 STYLE)
+                     ========================================== -->
+                <div class="user-profile-result-wrapper" id="userProfileWrapper" style="display: none;">
+                    <div class="tiktok-profile-card">
+                        <!-- Top Name Title above DP -->
+                        <div class="profile-card-top">
+                            <h3 class="profile-display-name" id="profileDisplayName">Two Whimsical Florists</h3>
+                        </div>
+
+                        <!-- Profile Circular Avatar Image (DP) -->
+                        <div class="profile-avatar-container">
+                            <img src="images/tiktok-logo-only.png" alt="TikTok Avatar" class="profile-dp-img" id="profileDpImg">
+                        </div>
+
+                        <!-- Username below DP -->
+                        <div class="profile-handle" id="profileHandle">@twowhimsicalflorists</div>
+
+                        <!-- Followers / Following / Likes Stats Row (Always formatted with K, M, B) -->
+                        <div class="profile-stats-container">
+                            <div class="stat-item">
+                                <span class="stat-count" id="statFollowing">128</span>
+                                <span class="stat-name">Following</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-count" id="statFollowers">24.4K</span>
+                                <span class="stat-name">Followers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-count" id="statLikes">451K</span>
+                                <span class="stat-name">Likes</span>
+                            </div>
+                        </div>
+
+                        <!-- Verified Check Banner -->
+                        <div class="profile-verified-badge-row">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Verified Account - Coins will be delivered directly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Perspective Scene Container -->
+                <div class="scene">
+                    <div class="cards-grid" id="packagesGrid">
+                        
+                        <!-- Card 1: 70 Coins -->
+                        <div class="card" data-coins="70" data-price="0.74" data-currency="$">
+                            <div class="card-content">
+                                <img src="images/coin.png" alt="Coin" class="coin-img">
+                                <span class="coins-amount">70</span>
+                            </div>
+                            <span class="price">$0.74</span>
+                        </div>
+
+                        <!-- Card 2: 350 Coins -->
+                        <div class="card" data-coins="350" data-price="3.70" data-currency="$">
+                            <div class="card-content">
+                                <img src="images/coin.png" alt="Coin" class="coin-img">
+                                <span class="coins-amount">350</span>
+                            </div>
+                            <span class="price">$3.70</span>
+                        </div>
+
+                        <!-- Card 3: 700 Coins -->
+                        <div class="card" data-coins="700" data-price="7.40" data-currency="$">
+                            <div class="card-content">
+                                <img src="images/coin.png" alt="Coin" class="coin-img">
+                                <span class="coins-amount">700</span>
+                            </div>
+                            <span class="price">$7.40</span>
+                        </div>
+
+                        <!-- Card 4: 1,400 Coins -->
+                        <div class="card" data-coins="1400" data-price="14.80" data-currency="$">
+                            <div class="card-content">
+                                <img src="images/coin.png" alt="Coin" class="coin-img">
+                                <span class="coins-amount">1,400</span>
+                            </div>
+                            <span class="price">$14.80</span>
+                        </div>
+
+                        <!-- Card 5: 3,500 Coins -->
+                        <div class="card" data-coins="3500" data-price="37.00" data-currency="$">
+                            <div class="card-content">
+                                <img src="images/coin.png" alt="Coin" class="coin-img">
+                                <span class="coins-amount">3,500</span>
+                            </div>
+                            <span class="price">$37.00</span>
+                        </div>
+
+                        <!-- Card 6: 7,000 Coins -->
+                        <div class="card" data-coins="7000" data-price="74.00" data-currency="$">
+                            <div class="card-content">
+                                <img src="images/coin.png" alt="Coin" class="coin-img">
+                                <span class="coins-amount">7,000</span>
+                            </div>
+                            <span class="price">$74.00</span>
+                        </div>
+
+                        <!-- Card 7: 17,500 Coins -->
+                        <div class="card" data-coins="17500" data-price="185.00" data-currency="$">
+                            <div class="card-content">
+                                <img src="images/coin.png" alt="Coin" class="coin-img">
+                                <span class="coins-amount">17,500</span>
+                            </div>
+                            <span class="price">$185.00</span>
+                        </div>
+
+                        <!-- Card 8: Custom Coins -->
+                        <div class="card custom-card" id="customCoinCard" data-coins="custom" data-price="custom" data-currency="$">
+                            <div class="card-content">
+                                <img src="images/coin.png" alt="Coin" class="coin-img">
+                                <span class="coins-amount">Custom</span>
+                            </div>
+                            <span class="price sub-text">Large amount supported</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Custom Coin Calculator Expandable Box -->
+                <div class="custom-coin-calculator glass-panel" id="customCalculatorBox" style="display: none;">
+                    <div class="calc-header">
+                        <h4><i class="fa-solid fa-sliders"></i> Enter Custom Coin Amount</h4>
+                        <span class="calc-rate-info">Rate: 1 Coin ≈ $0.01057 (32% cheaper)</span>
+                    </div>
+                    <div class="calc-body">
+                        <div class="calc-input-wrap">
+                            <img src="images/coin.webp" alt="Coin" class="calc-coin-icon">
+                            <input type="number" id="customCoinInput" min="30" max="2500000" step="10" placeholder="e.g. 5000" value="5000">
+                            <span class="input-suffix">Coins</span>
+                        </div>
+                        <div class="calc-result">
+                            <span class="calc-label">Calculated Price:</span>
+                            <span class="calc-price" id="customCalculatedPrice">$52.85</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PAYMENT METHODS SECTION (LIKE IMAGE 3)
+             ========================================== -->
+        <section class="payment-section" id="how-to-buy">
+            <div class="section-container">
+                
+                <div class="payment-step-header">
+                    <div class="step-badge">3</div>
+                    <h2 class="step-title">Payment Method</h2>
+                </div>
+
+                <!-- Available Payment Channels Grid -->
+                <div class="payment-grid">
+                    
+                    <!-- EasyPaisa -->
+                    <div class="payment-card active" data-method="easypaisa" data-title="EasyPaisa Wallet">
+                        <div class="payment-card-left">
+                            <img src="images/easypaisa-logo.png" alt="EasyPaisa" class="payment-brand-logo">
+                            <span class="payment-name">EasyPaisa</span>
+                        </div>
+                        <div class="payment-select-indicator">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <!-- JazzCash -->
+                    <div class="payment-card" data-method="jazzcash" data-title="JazzCash Mobile Account">
+                        <div class="payment-card-left">
+                            <img src="images/jazzcash-logo.png" alt="JazzCash" class="payment-brand-logo">
+                            <span class="payment-name">JazzCash</span>
+                        </div>
+                        <div class="payment-select-indicator">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <!-- Konnect by HBL -->
+                    <div class="payment-card" data-method="konnect" data-title="Konnect by HBL">
+                        <div class="payment-card-left">
+                            <img src="images/konnect-logo.png" alt="Konnect" class="payment-brand-logo">
+                            <span class="payment-name">Konnect</span>
+                        </div>
+                        <div class="payment-select-indicator">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <!-- Visa Card -->
+                    <div class="payment-card" data-method="visa" data-title="Visa Debit / Credit Card">
+                        <div class="payment-card-left">
+                            <img src="images/visa-card.png" alt="Visa" class="payment-brand-logo">
+                            <span class="payment-name">Visa Card</span>
+                        </div>
+                        <div class="payment-select-indicator">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <!-- Master Card -->
+                    <div class="payment-card" data-method="mastercard" data-title="Mastercard International">
+                        <div class="payment-card-left">
+                            <img src="images/master-card.png" alt="MasterCard" class="payment-brand-logo">
+                            <span class="payment-name">Mastercard</span>
+                        </div>
+                        <div class="payment-select-indicator">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <!-- Jazz Mobile Billing -->
+                    <div class="payment-card" data-method="jazz-mobile" data-title="Jazz Direct Carrier Billing">
+                        <div class="payment-card-left">
+                            <img src="images/jazz-mobile-billing.png" alt="Jazz Mobile Billing" class="payment-brand-logo">
+                            <span class="payment-name">Jazz Mobile Billing</span>
+                        </div>
+                        <span class="badge-new">NEW</span>
+                        <div class="payment-select-indicator">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Not Available Channels Section (Exact like Image 3) -->
+                <div class="unavailable-channels-section">
+                    <h4 class="unavailable-title">Not available channels</h4>
+                    <div class="unavailable-grid">
+                        <div class="unavailable-card">
+                            <div class="unavailable-logo-box">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span class="unavail-bank">Alfa</span>
+                            </div>
+                            <div class="unavailable-text">
+                                Temporarily closed for maintenance
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     ORDER SUMMARY & CHECKOUT BAR (GLASSMORPHIC)
+                     ========================================== -->
+                <div class="order-summary-box glass-panel">
+                    <div class="summary-details">
+                        <div class="summary-item">
+                            <span class="item-label">Selected Package:</span>
+                            <span class="item-value" id="summaryCoinsDisplay">
+                                <span style="color: #9ca3af;">None selected</span>
+                            </span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="item-label">Payment Gateway:</span>
+                            <span class="item-value" id="summaryPaymentDisplay">EasyPaisa</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="item-label">Account:</span>
+                            <span class="item-value text-tiktok-cyan" id="summaryUserDisplay">@Not Set</span>
+                        </div>
+                        <div class="summary-item total-item">
+                            <span class="item-label">Total Amount:</span>
+                            <span class="item-value price-highlight" id="summaryPriceDisplay">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <button class="checkout-proceed-btn" id="checkoutBtn">
+                        <span>Proceed to Top Up</span>
+                        <i class="fa-solid fa-bolt"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         FOOTER SECTION (REF IMAGE 2)
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright-text">
+                    &copy; <span id="currentYear">2026</span> TikTok Online Top Up Mart. All rights reserved.
+                </p>
+            </div>
+            <div class="footer-right">
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)" onclick="openInfoModal('faq')">FAQ</a></li>
+                    <li><span class="footer-sep">|</span></li>
+                    <li><a href="javascript:void(0)" onclick="openInfoModal('help')">Help Center</a></li>
+                    <li><span class="footer-sep">|</span></li>
+                    <li><a href="javascript:void(0)" onclick="openInfoModal('terms')">Terms and Conditions</a></li>
+                    <li><span class="footer-sep">|</span></li>
+                    <li><a href="javascript:void(0)" onclick="openInfoModal('privacy')">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         POPUP MODAL: AUTHENTICATION (SIGN IN / SIGN UP)
+         ========================================== -->
+    <div class="modal-overlay" id="authModalOverlay">
+        <div class="modal-card glass-panel" id="authModalCard">
+            <button class="modal-close-btn" onclick="closeAuthModal()" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="modal-header">
+                <img src="images/tiktok-logo-only.png" alt="TikTok" class="modal-logo">
+                <h3 class="modal-title" id="authModalTitle">Welcome to <span class="text-tiktok-gradient">TikTok Mart</span></h3>
+                <p class="modal-subtitle" id="authModalSubtitle">Sign in or create an account to recharge coins with discounts</p>
+            </div>
+
+            <!-- Tab Switcher -->
+            <div class="modal-tabs">
+                <button class="tab-btn active" id="authTabLogin" onclick="switchAuthTab('login')">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                </button>
+                <button class="tab-btn" id="authTabRegister" onclick="switchAuthTab('register')">
+                    <i class="fa-solid fa-user-plus"></i> Register
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <!-- 1. Sign In Form -->
+                <form id="signInForm" class="auth-form" onsubmit="handleSignInSubmit(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="loginEmail" placeholder="yourname@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                            <button type="button" class="toggle-password" onclick="togglePassVisibility('loginPassword')">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="loginErrorMsg" class="form-error-msg" style="display: none;"></div>
+
+                    <button type="submit" class="tiktok-btn-primary" id="loginSubmitBtn">
+                        <span>Sign In</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <!-- 2. Register Form -->
+                <form id="signUpForm" class="auth-form" style="display: none;" onsubmit="handleSignUpSubmit(event)">
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="regFirstName">First Name *</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="regFirstName" placeholder="First Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regLastName">Last Name *</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="regLastName" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">Email Address *</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="regEmail" placeholder="e.g. name@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regTiktokId">TikTok Account ID (Optional)</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">@</span>
+                            <input type="text" id="regTiktokId" placeholder="username (e.g. twowhimsicalflorists)">
+                        </div>
+                        <span class="field-hint">If provided, your profile will be linked automatically.</span>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="regPassword">Password *</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="regPassword" placeholder="Min 6 chars" required minlength="6">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regConfirmPassword">Confirm Password *</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="regConfirmPassword" placeholder="Repeat password" required minlength="6">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="registerErrorMsg" class="form-error-msg" style="display: none;"></div>
+
+                    <button type="submit" class="tiktok-btn-primary" id="registerSubmitBtn">
+                        <span>Create Account</span>
+                        <i class="fa-solid fa-user-check"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <div class="secure-tag">
+                    <i class="fa-solid fa-shield-halved"></i> 256-bit SSL Encrypted Credentials Storage
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         POPUP MODAL: STEP 1 - ORDER CONFIRMATION
+         ========================================== -->
+    <div class="modal-overlay" id="orderConfirmModalOverlay">
+        <div class="modal-card glass-panel" style="max-width: 480px;">
+            <button class="modal-close-btn" onclick="closeOrderConfirmModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="confirm-pill-badge">
+                    <i class="fa-solid fa-cart-shopping text-tiktok-cyan"></i> ORDER REVIEW
+                </div>
+                <h3 class="modal-title">Confirm Your <span class="text-tiktok-gradient">Top Up Order</span></h3>
+                <p class="modal-subtitle">Please verify your target account and coin package details</p>
+            </div>
+
+            <div class="order-confirm-card">
+                <!-- Target Account Info -->
+                <div class="confirm-account-box">
+                    <img src="images/tiktok-logo-only.png" alt="Avatar" class="confirm-dp" id="confirmTargetDp">
+                    <div class="confirm-account-text">
+                        <span class="confirm-name" id="confirmTargetName">TikTok Creator</span>
+                        <span class="confirm-handle" id="confirmTargetHandle">@username</span>
+                    </div>
+                    <span class="confirm-verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span>
+                </div>
+
+                <!-- Package & Price Breakdown -->
+                <div class="confirm-breakdown">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Selected Package:</span>
+                        <span class="breakdown-val highlight-bold" id="confirmCoinsText">1,400 Coins</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Payment Channel:</span>
+                        <span class="breakdown-val" id="confirmPaymentText">EasyPaisa</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Delivery Speed:</span>
+                        <span class="breakdown-val text-tiktok-cyan"><i class="fa-solid fa-bolt"></i> Instant In-App</span>
+                    </div>
+                    <div class="breakdown-row total-row">
+                        <span class="breakdown-label">Total Payable:</span>
+                        <span class="breakdown-val total-price" id="confirmPriceText">$14.80</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-action-row">
+                <button class="modal-cancel-btn" onclick="closeOrderConfirmModal()">Cancel</button>
+                <button class="tiktok-btn-primary" id="confirmBuyNowBtn" onclick="proceedToPaymentDetails()">
+                    <span>Buy Now</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         POPUP MODAL: STEP 2 - PAYMENT DETAILS FORM
+         ========================================== -->
+    <div class="modal-overlay" id="paymentDetailsModalOverlay">
+        <div class="modal-card glass-panel" style="max-width: 520px;">
+            <button class="modal-close-btn" onclick="closePaymentDetailsModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="payment-method-header-box">
+                    <img src="images/easypaisa-logo.png" alt="Payment" class="payment-detail-logo" id="paymentFormLogo">
+                    <div>
+                        <h3 class="modal-title" id="paymentFormTitle">EasyPaisa Payment</h3>
+                        <p class="modal-subtitle">Enter payment credentials to complete the purchase</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Payment Form -->
+            <form id="paymentExecutionForm" onsubmit="executePaymentSubmit(event)">
+                
+                <!-- Card Payment Fields (Visa / MasterCard) -->
+                <div id="cardPaymentFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="cardHolderName">Cardholder Name *</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="cardHolderName" placeholder="Full Name on Card">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number *</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="cardNumber" placeholder="4111 2222 3333 4444" maxlength="19">
+                            <i class="fa-brands fa-cc-visa text-tiktok-cyan" style="font-size: 20px;"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="cardExpiry">Expiry Date *</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardCvv">CVV / CVC *</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="cardCvv" placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Wallet Fields (EasyPaisa / JazzCash / Konnect / Jazz Billing) -->
+                <div id="walletPaymentFields">
+                    <div class="form-group">
+                        <label for="walletMobileNumber" id="walletNumberLabel">Mobile Account Number (03XXXXXXXXX) *</label>
+                        <div class="input-wrapper">
+                            <input type="tel" id="walletMobileNumber" placeholder="03001234567" maxlength="11">
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="cnicFieldGroup">
+                        <label for="walletCnic">CNIC Last 6 Digits *</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="walletCnic" placeholder="e.g. 456789" maxlength="6">
+                        </div>
+                        <span class="field-hint">Required for payment authorization prompt on your phone</span>
+                    </div>
+                </div>
+
+                <div id="paymentFormError" class="form-error-msg" style="display: none;"></div>
+
+                <div class="payment-submit-summary">
+                    <span>Amount to be charged:</span>
+                    <strong class="text-tiktok-cyan" id="paymentChargedAmount">$14.80</strong>
+                </div>
+
+                <button type="submit" class="tiktok-btn-primary" id="payNowFinalBtn">
+                    <i class="fa-solid fa-lock"></i>
+                    <span id="payNowBtnText">Pay $14.80</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         POPUP MODAL: STEP 3 - TRANSACTION PENDING (4s)
+         ========================================== -->
+    <div class="modal-overlay" id="paymentPendingModalOverlay">
+        <div class="modal-card glass-panel text-center" style="max-width: 440px;">
+            <div class="pending-animation-wrap">
+                <div class="spinner-ring"></div>
+                <img src="images/tiktok-theme-coin.webp" alt="Coin" class="pending-coin-center">
+            </div>
+
+            <h3 class="modal-title" style="margin-top: 20px;">Processing <span class="text-tiktok-gradient">Transaction...</span></h3>
+            <p class="modal-subtitle">Connecting with payment gateway and crediting TikTok coins.</p>
+
+            <div class="pending-countdown-box">
+                <span>Estimated time remaining: </span>
+                <strong id="pendingCountdown">4</strong>s
+            </div>
+
+            <div class="secure-tag" style="margin-top: 15px;">
+                <i class="fa-solid fa-shield-halved"></i> Please do not close or refresh this page
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         POPUP MODAL: STEP 4 - TRANSACTION SUCCESSFUL
+         ========================================== -->
+    <div class="modal-overlay" id="paymentSuccessModalOverlay">
+        <!-- Confetti Canvas Area -->
+        <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+        <div class="modal-card glass-panel success-card" style="max-width: 480px;">
+            <div class="success-icon-wrap">
+                <div class="success-circle">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <h3 class="success-title">Recharge <span class="highlight-cyan">Successful!</span></h3>
+            <p class="success-subtitle">TikTok Coins have been added directly to your account balance.</p>
+
+            <!-- Receipt Box -->
+            <div class="success-receipt-box">
+                <div class="receipt-row">
+                    <span class="receipt-label">Transaction ID:</span>
+                    <span class="receipt-val code-text" id="successTxId">#TT-2026-849201</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Target Account:</span>
+                    <span class="receipt-val highlight-bold" id="successTxAccount">@twowhimsicalflorists</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Coins Credited:</span>
+                    <span class="receipt-val text-tiktok-pink" id="successTxCoins">+1,400 Coins</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Payment Gateway:</span>
+                    <span class="receipt-val" id="successTxGateway">EasyPaisa</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Amount Paid:</span>
+                    <span class="receipt-val price-highlight" id="successTxPrice">$14.80</span>
+                </div>
+            </div>
+
+            <!-- Go to Home Button (Keeps logged-in active user) -->
+            <button class="tiktok-btn-primary" onclick="returnToLoggedInHome()">
+                <i class="fa-solid fa-house"></i>
+                <span>Go to Home Page</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         POPUP MODAL: USER PROFILE & SETTINGS
+         ========================================== -->
+    <div class="modal-overlay" id="profileModalOverlay">
+        <div class="modal-card glass-panel" style="max-width: 480px;">
+            <button class="modal-close-btn" onclick="closeProfileModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-header">
+                <h3 class="modal-title">My <span class="text-tiktok-gradient">Profile</span></h3>
+                <p class="modal-subtitle">Update your personal account info & linked TikTok ID</p>
+            </div>
+
+            <form id="editProfileForm" onsubmit="handleProfileUpdateSubmit(event)">
+                <div class="profile-avatar-edit-box">
+                    <div class="dp-upload-wrapper" onclick="document.getElementById('profileFileInput').click()" title="Click to upload profile picture">
+                        <img src="images/tiktok-logo-only.png" alt="Avatar" class="edit-profile-dp" id="editProfileDp">
+                        <div class="dp-upload-overlay">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>Upload</span>
+                        </div>
+                        <input type="file" id="profileFileInput" accept="image/*" style="display: none;" onchange="handleAvatarFileSelect(event)">
+                    </div>
+                    <div class="avatar-edit-controls">
+                        <label class="field-label-sm">Profile Picture</label>
+                        <button type="button" class="upload-pic-btn" onclick="document.getElementById('profileFileInput').click()">
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Photo
+                        </button>
+                        <input type="hidden" id="editDpUrl">
+                        <span class="field-hint">Click the DP circle or button to choose an image</span>
+                    </div>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="editFirstName">First Name</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="editFirstName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editLastName">Last Name</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="editLastName" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editTiktokId">Linked TikTok ID</label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">@</span>
+                        <input type="text" id="editTiktokId" placeholder="username">
+                    </div>
+                </div>
+
+                <button type="submit" class="tiktok-btn-primary">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    <span>Save Changes</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         POPUP MODAL: TRANSACTION HISTORY
+         ========================================== -->
+    <div class="modal-overlay" id="transactionsModalOverlay">
+        <div class="modal-card glass-panel" style="max-width: 640px;">
+            <button class="modal-close-btn" onclick="closeTransactionsModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-receipt text-tiktok-pink"></i> Transaction <span class="text-tiktok-gradient">History</span></h3>
+                <p class="modal-subtitle">Records of all your coin top-up orders</p>
+            </div>
+
+            <div class="transactions-list-wrap" id="transactionsListContainer">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         POPUP MODAL: GENERAL INFORMATIONAL PAGES
+         (Coin Price, How to Buy, World Wide, Blog, Contact, FAQ, Terms, Privacy)
+         ========================================== -->
+    <div class="modal-overlay" id="infoModalOverlay">
+        <div class="modal-card glass-panel info-modal-card">
+            <button class="modal-close-btn" onclick="closeInfoModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="info-modal-content" id="infoModalContent">
+                <!-- Injected dynamically based on clicked page -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js?v=20260929_v2"></script>
+</body>
+</html>
